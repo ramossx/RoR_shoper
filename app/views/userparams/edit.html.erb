@@ -1,8 +1,8 @@
-<h3>Профіль користувача <b><%=@userparam.user.nickname%></b></h3>
+<h3>Profile of user <b><%=@userparam.user.nickname%></b></h3>
 <%=form_for @userparam, url:userparam_path, method: :patch do |f|%>
 
   <div class="form-group ">
-  	<%=f.label "Про себе" %>
+  	<%=f.label "A brief bio" %>
     <%= f.text_area :bio, class:"form-control"%>
 	</div>
 
@@ -12,6 +12,6 @@
   </div>
 
 
-  <%=f.submit "Оновити"%>
+  <%=f.submit "Refresh"%>
 
 <%end%>

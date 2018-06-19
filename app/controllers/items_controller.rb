@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-	before_action :authenticate_user!, only:[:new,:create,:update,:edit,:destroy]
+	before_action :authenticate_user!, only:[:new,:create,:update,:edit,:destroy,:positiv_vote,:negativ_vote]
 	before_action :get_item,  only: [:show,:update,:edit,:destroy,:positiv_vote,:negativ_vote]
 
 	def index
@@ -90,11 +90,7 @@ class ItemsController < ApplicationController
 
 	def get_item
 		@item = Item.find(params[:id])
+		@user=@item.user_id
 	end
-
-	# def get_user
-	# 	@user=@item.user_id
-	# 	@vote=Vote.find_by(user_id: current_user.id, item_id: @item.id)
-	# end
 
 end
