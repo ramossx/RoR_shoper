@@ -1,0 +1,42 @@
+<link href="style.css" rel="stylesheet">
+<div class="header">
+  
+  <%= link_to root_path do%>
+    <div class="name">
+      Shoper
+    </div>
+  <%end%>
+  <div class="names">
+      <%=link_to new_item_path do%>
+            <div class="btn2">
+              Add a new item
+            </div>
+      <%end%>
+      <%=link_to items_rating_path do%>
+            <div class="btn2">
+              Items rating
+            </div>
+      <%end%>
+      <%=link_to categories_path do%>
+            <div class="btn2">
+              Categories
+            </div>
+      <%end%>
+  </div>
+
+  <% if current_user.nil? %>
+    <%= link_to  user_session_path do %> 
+      <div class="btn0">
+        Sign in
+      </div>
+      <% end %>
+  <% else %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <div class="btn1">
+          Log out
+        </div>
+      <%end%>
+      <div class="menu">
+      </div>
+  <%end%>
+</div>
